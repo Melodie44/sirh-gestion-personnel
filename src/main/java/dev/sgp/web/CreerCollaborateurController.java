@@ -1,10 +1,8 @@
 package dev.sgp.web;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Properties;
 
@@ -14,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dev.sgp.entite.Collaborateur;
+import dev.sgp.entite.Departement;
 import dev.sgp.service.CollaborateurService;
+import dev.sgp.service.DepartementService;
 import dev.sgp.util.Constantes;
 
 public class CreerCollaborateurController extends HttpServlet{
@@ -72,12 +72,15 @@ public class CreerCollaborateurController extends HttpServlet{
 			collab.setMatricule("M"+numSecuSociale.substring(13, 15));
 			collab.setEmailPro(prenom+"."+nom+"@"+suffixe);
 			collab.setPhoto(req.getContextPath()+"/img/logo_img.jpg");
+			collab.setDepartement(new Departement(0,"Tous"));
+			collab.setIntitulePoste("Développeur");
+			collab.setTelephone("0202020202");
 			
 			collabService.sauvegarderCollaborateur(collab);
 			collabService.listerCollaborateurs();
 			
 			req.setAttribute("listeNoms", collabService.listerCollaborateurs());
-			req.getRequestDispatcher("/WEB-INF/views/collab/listerCollaborateurs.jsp").forward(req, resp);
+			resp.sendRedirect("lister");
 		}
 		
 		if(erreur == true) {

@@ -16,25 +16,25 @@
 		<form method="post">
 			<div class="form-group">
 				<label for="nom">Nom *</label> 
-				<input type="text" class="form-control" name="nom" required>
+				<input id="nom" type="text" class="form-control" name="nom" required>
 			</div>
 			<div class="form-group">
 				<label for="prenom">Prénom *</label> 
-				<input type="text" class="form-control" name="prenom" required>
+				<input id="prenom" type="text" class="form-control" name="prenom" required>
 			</div>
 			<div class="form-group">
 				<label for="dateNaissance">Date de naissance *</label> 
-				<input type="date" class="form-control" name="dateNaissance" required>
+				<input id="dateNaissance" type="date" class="form-control" name="dateNaissance" required>
 			</div>
 			<div class="form-group">
 				<label for="adresse">Adresse *</label>
-				<textarea class="form-control" rows="4" name="adresse" required></textarea>
+				<textarea id="adresse" class="form-control" rows="4" name="adresse" required></textarea>
 			</div>
 			<div class="form-group">
 				<label for="numSecuSociale">Numéro de sécurité sociale *</label> 
-				<input type="number" class="form-control" name="numSecuSociale" required>
+				<input id="numSecuSociale" type="number" class="form-control" name="numSecuSociale" required>
 			</div>
-			<button type="submit" class="btn btn-default" name="valider" value="true">Créer</button>
+			<button type="submit" class="btn btn-default">Créer</button>
 		</form>
 	</div>
 </body>
