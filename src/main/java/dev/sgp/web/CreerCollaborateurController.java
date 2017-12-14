@@ -30,23 +30,23 @@ public class CreerCollaborateurController extends HttpServlet{
 		String numSecuSociale = req.getParameter("numSecuSociale");
 		
 		Properties prop = new Properties();
-		prop.load(new FileInputStream("sirth-gestion-personnel.properties"));
-		String suffixe = prop.getProperty("suffixeEmailPro");
+		prop.load(this.getClass().getResourceAsStream("/sirth-gestion-personnel.properties"));
+		String suffixe = prop.getProperty("appli.suffixeEmailPro");
 		
 		Collaborateur collab = new Collaborateur();
 		collab.setNom(nom);
 		collab.setPrenom(prenom);
-		collab.setDateNaissance(LocalDate.parse(dateNaissance));
+		//collab.setDateNaissance(LocalDate.parse(dateNaissance));
 		collab.setAdresse(adresse);
 		collab.setNumSecuSociale(numSecuSociale);
 		collab.setActif(true);
 		collab.setDateHeureCreation(ZonedDateTime.now());
-		collab.setMatricule("M"+numSecuSociale.substring(10, 14));
+		//collab.setMatricule("M"+numSecuSociale.substring(10, 14));
 		collab.setEmailPro(prenom+"."+nom+"@"+suffixe);
 		
 		collabService.sauvegarderCollaborateur(collab);
 		
-		req.getRequestDispatcher("/WEB-INF/views/collab/nouveauCollaborateur.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/collab/listerCollaborateur.jsp").forward(req, resp);
 	
 	}
 

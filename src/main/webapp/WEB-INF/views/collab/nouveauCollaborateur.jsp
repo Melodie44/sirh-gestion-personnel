@@ -36,7 +36,7 @@
 			</div>
 			<div class="form-group">
 				<label for="numSecuSociale">Numéro de sécurité sociale *</label> 
-				<input type="number" class="form-control" id="numSecuSociale" min="15" max="15" required>
+				<input type="number" class="form-control" id="numSecuSociale" min="15" required>
 			</div>
 			<button type="submit" class="btn btn-default">Créer</button>
 		</form>
