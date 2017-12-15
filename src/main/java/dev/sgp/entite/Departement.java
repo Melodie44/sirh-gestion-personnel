@@ -10,7 +10,7 @@ public class Departement {
 	}	
 	
 	public Departement(Integer id, String nom) {
-		super();
+		
 		this.id = id;
 		this.nom = nom;
 	}
