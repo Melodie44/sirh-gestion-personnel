@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dev.sgp.entite.Collaborateur;
 import dev.sgp.entite.Departement;
+import dev.sgp.listener.CompteurSessionListener;
 import dev.sgp.service.CollaborateurService;
 import dev.sgp.service.DepartementService;
 import dev.sgp.util.Constantes;
@@ -17,8 +18,8 @@ import dev.sgp.util.Constantes;
 public class ListerCollaborateursController extends HttpServlet {
 
 	// recuperation du service
-	private CollaborateurService collabService = Constantes.COLLAB_SERVICE;
-	private DepartementService departService = Constantes.DEPART_SERVICE;
+	private static CollaborateurService collabService = Constantes.COLLAB_SERVICE;
+	private static DepartementService departService = Constantes.DEPART_SERVICE;
 	
 	{
 		departService.sauvegarderDepartement(new Departement(1,"Tous"));

@@ -20,7 +20,7 @@ import dev.sgp.util.Constantes;
 public class CreerCollaborateurController extends HttpServlet{
 
 	// recuperation du service
-	private CollaborateurService collabService = Constantes.COLLAB_SERVICE;
+	private static CollaborateurService collabService = Constantes.COLLAB_SERVICE;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
