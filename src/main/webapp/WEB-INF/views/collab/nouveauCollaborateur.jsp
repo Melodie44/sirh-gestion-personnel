@@ -7,36 +7,32 @@
 <title>SGP - App</title>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/bootstrap-3.3.7-dist/css/bootstrap.css">
-<script
-	src="<%=request.getContextPath()%>/bootstrap-3.3.7-dist/css/bootstrap.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 </head>
 
 <body>
 	<div class="container">
 		<h1>Nouveau Collaborateur</h1>
 
-		<form >
+		<form method="post">
 			<div class="form-group">
 				<label for="nom">Nom *</label> 
-				<input type="text" class="form-control" id="nom" required>
+				<input id="nom" type="text" class="form-control" name="nom" required>
 			</div>
 			<div class="form-group">
 				<label for="prenom">Prénom *</label> 
-				<input type="text" class="form-control" id="prenom" required>
+				<input id="prenom" type="text" class="form-control" name="prenom" required>
 			</div>
 			<div class="form-group">
 				<label for="dateNaissance">Date de naissance *</label> 
-				<input type="date" class="form-control" id="dateNaissance" required>
+				<input id="dateNaissance" type="date" class="form-control" name="dateNaissance" required>
 			</div>
 			<div class="form-group">
 				<label for="adresse">Adresse *</label>
-				<textarea class="form-control" rows="4" id="adresse" required></textarea>
+				<textarea id="adresse" class="form-control" rows="4" name="adresse" required></textarea>
 			</div>
 			<div class="form-group">
 				<label for="numSecuSociale">Numéro de sécurité sociale *</label> 
-				<input type="number" class="form-control" id="numSecuSociale" min="15" required>
+				<input id="numSecuSociale" type="number" class="form-control" name="numSecuSociale" required>
 			</div>
 			<button type="submit" class="btn btn-default">Créer</button>
 		</form>

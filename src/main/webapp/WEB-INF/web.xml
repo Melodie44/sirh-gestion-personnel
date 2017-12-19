@@ -2,6 +2,7 @@
 <web-app>
 	<display-name>sgp</display-name>
 
+	<!-- Servlets -->
 	<servlet>
 		<servlet-name>ListerCollaborateursController</servlet-name>
 		<servlet-class>
@@ -13,14 +14,20 @@
 		<servlet-class>
 			dev.sgp.web.EditerCollaborateurController
 		</servlet-class>
-	</servlet> 
+	</servlet>
 	<servlet>
 		<servlet-name>CreerCollaborateurController</servlet-name>
 		<servlet-class>
 			dev.sgp.web.CreerCollaborateurController
 		</servlet-class>
 	</servlet>
-	
+	<servlet>
+		<servlet-name>StatistiquesController</servlet-name>
+		<servlet-class>
+			dev.sgp.web.StatistiquesController
+		</servlet-class>
+	</servlet>
+
 	<servlet-mapping>
 		<servlet-name>ListerCollaborateursController</servlet-name>
 		<url-pattern>/collaborateurs/lister</url-pattern>
@@ -33,4 +40,23 @@
 		<servlet-name>CreerCollaborateurController</servlet-name>
 		<url-pattern>/collaborateurs/nouveau</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>StatistiquesController</servlet-name>
+		<url-pattern>/statistiques</url-pattern>
+	</servlet-mapping>
+
+	<!-- Filtres -->
+	<filter>
+		<filter-name>FrequentationFilter</filter-name>
+		<filter-class>dev.sgp.filtre.FrequentationFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>FrequentationFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- Listeners -->
+	<listener>
+		<listener-class>dev.sgp.listener.CompteurSessionListener</listener-class>
+	</listener>
 </web-app>
