@@ -29,7 +29,7 @@
     				<c:forEach items="${visites}" var="visite">	
     				<tr>
     					<td>${visite.chemin}</td>
-    					<td></td>
+    					<td>${compteur}</td>
     				</tr>
     				</c:forEach>
     			</tbody>

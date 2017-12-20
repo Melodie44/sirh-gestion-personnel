@@ -35,9 +35,18 @@ public class FrequentationFilter implements Filter {
 		chain.doFilter(req, resp);
 		long after = System.currentTimeMillis();
 		String path = ((HttpServletRequest) req).getRequestURI();
+
 		config.getServletContext().log(path + " : " + (after - before));	
 		visiteService.sauvegarderVisite(new VisiteWeb(path, (int)(after - before)));
 		req.setAttribute("visites", visiteService.listerVisites());
+
+		config.getServletContext().log(path + " : " + (after - before));
+		VisiteWeb vw = new VisiteWeb();
+		vw.setChemin(path);
+		vw.setTempsExecution((int)(after - before));
+		visiteService.sauvegarderVisite(vw);
+		config.getServletContext().setAttribute("visites", visiteService.listerVisites());
+
 	}
 
 	@Override
