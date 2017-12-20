@@ -8,7 +8,11 @@ import dev.sgp.entite.VisiteWeb;
 
 public class VisiteWebService {
 
-	List<VisiteWeb> listeVisites = new ArrayList<>();
+	List<VisiteWeb> listeVisites;
+	
+	{
+		listeVisites = new ArrayList<>();
+	}
 
 	public List<VisiteWeb> listerVisites() {
 		return listeVisites;

@@ -37,6 +37,7 @@ public class FrequentationFilter implements Filter {
 		String path = ((HttpServletRequest) req).getRequestURI();
 		config.getServletContext().log(path + " : " + (after - before));	
 		visiteService.sauvegarderVisite(new VisiteWeb(path, (int)(after - before)));
+		req.setAttribute("visites", visiteService.listerVisites());
 	}
 
 	@Override

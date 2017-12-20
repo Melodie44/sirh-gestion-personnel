@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,10 +20,7 @@ public class StatistiquesController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		List<VisiteWeb> visites = visiteService.listerVisites();
-		
-		req.setAttribute("visites", visites);
+
 		req.getRequestDispatcher("/WEB-INF/views/stats/statistiques.jsp").forward(req, resp);
 	}
 }

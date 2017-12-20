@@ -10,6 +10,8 @@ public class CompteurSessionListener implements HttpSessionListener {
 
 		Integer compteur = (Integer) event.getSession().getServletContext().getAttribute("compteur");
 		event.getSession().getServletContext().setAttribute("compteur", compteur + 1);
+		
+		
 		System.out.println("Nombre de sessions ouvertes = " + (compteur + 1));
 
 	}
