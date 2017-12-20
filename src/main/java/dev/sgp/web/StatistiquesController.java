@@ -21,8 +21,16 @@ public class StatistiquesController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		int compteur = 0;
+		
 		List<VisiteWeb> visites = visiteService.listerVisites();
-		Integer compteur = (Integer) req.getSession().getServletContext().getAttribute("compteur");
+		for (VisiteWeb vw : visites) {
+			if(visites.contains(vw.getChemin())) {
+				compteur += 1;
+			}else {
+				compteur = 0;
+			}
+		}
 		
 		req.setAttribute("compteur", compteur);
 		req.setAttribute("visites", visites);

@@ -30,6 +30,7 @@
     				<tr>
     					<td>${visite.chemin}</td>
     					<td>${compteur}</td>
+    					<td>${visite.tempsExecution}</td>
     				</tr>
     				</c:forEach>
     			</tbody>
