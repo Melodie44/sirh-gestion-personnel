@@ -21,7 +21,9 @@ public class StatistiquesController extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		List<VisiteWeb> visites = visiteService.listerVisites();
+		Integer compteur = (Integer) req.getSession().getServletContext().getAttribute("compteur");
 		
+		req.setAttribute("compteur", compteur);
 		req.setAttribute("visites", visites);
 		req.getRequestDispatcher("/WEB-INF/views/stats/statistiques.jsp").forward(req, resp);
 	}
